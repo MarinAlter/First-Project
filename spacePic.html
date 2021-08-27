@@ -38,11 +38,33 @@
 			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			crossorigin="anonymous"
 		></script>
+		<link rel="stylesheet" type="text/css" href="./public/styles.css" />
 	</head>
 
 	<body>
-		<div class="container" style="margin: 30px">
+		<nav>
+			<div class="nav-wrapper">
+				<ul class="right">
+					<li id="spacePic">
+						<a href="#"
+							><i class="material-icons">collections</i></a
+						>
+					</li>
+					<li id="earth">
+						<a href="#"><i class="material-icons">public</i></a>
+					</li>
+					<li id="logout">
+						<a href="#"><i class="material-icons">logout</i></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
 			<div class="row nasa"></div>
+			<div class="loaderrow">
+				<div class="loader"></div>
+				<div style="width: 100%; text-align: center">Loading Pics From Nasa</div>
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -56,6 +78,7 @@
 				url: api + "?count=20&api_key=" + key,
 				method: "GET",
 				success: function (data) {
+					$('.loaderrow').css('display', 'none')
 					console.log(data);
 					$(".activator").attr("src", data.url);
 
@@ -86,11 +109,11 @@
 								`</p>` +
 								`</div>` +
 								`</div></div>`
-
 						);
 					}
 				},
 			});
 		});
 	</script>
+	<script src="./nav.js"></script>
 </html>

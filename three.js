@@ -1,8 +1,8 @@
 $(document).ready(function () {
 	console.log("charlotte is a bcoas");
 	const scene = new THREE.Scene();
-	const camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
-	const renderer = new THREE.WebGLRenderer();
+	const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000);
+	const renderer = new THREE.WebGLRenderer({ clearColor: 0x000000, alpha: true });
 	$(".body").append(renderer.domElement);
 	const sphereGeom = new THREE.SphereGeometry(1, 28, 32);
 	var textureLoader = new THREE.TextureLoader();
@@ -62,24 +62,16 @@ const moonGeom = new THREE.SphereGeometry(.5, 28, 32);
 	scene.add(moon);
 	var moonOrbitRadius = 1.6;
 	var moonOrbitAngle = 0;
-	var moonOrbitSpeed = 1;
+	var moonOrbitSpeed = .5;
 
 	function animate() {
 		requestAnimationFrame(animate);
-		sphere.rotation.x += 0.01;
-		sphere.rotation.y += 0.01;
+		sphere.rotation.x += 0.005;
+		sphere.rotation.y += 0.005;
 		renderer.render(scene, camera);
-		moon.rotation.y += 0.01;
-		//moon.position.y = 1;
-		//moon.position.x = 2;
-		// sphere.position.y = 0;
-		// sphere.position.x = -1;
-		// sphere.position.z = -1;
-		// cloud.position.y = 0;
-		// cloud.position.x = -1;
-		// cloud.position.z = -1;
-		// cloud.rotation.x += 0;
-		// cloud.rotation.y += 0.01;
+		moon.rotation.y += 0.005;
+		cloud.rotation.x += 0;
+		cloud.rotation.y += 0.005;
 		moon.position.z = 1;
 		var moonRadians = (moonOrbitAngle * Math.PI) / 180;
 		moonOrbitAngle += moonOrbitSpeed;

@@ -10,7 +10,7 @@ const bcrypt = require("bcryptjs");
 const secret = "feet are awful";
 const jwt = require("jsonwebtoken");
 
-app.use(express.static(__dirname + "/"));
+app.use(express.static(path.join(__dirname + "/")));
 //AuthCheck!
 const authCheck = async (req, res, next) => {
 	const token = req.query.t;

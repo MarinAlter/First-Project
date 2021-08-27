@@ -1,16 +1,24 @@
 body.starfield {
 	background-image:url('/assets/starfield2.jpg');
 }
+
+body.starfield nav, starfield.nav-wrapper {
+opacity: .2;
+background: #222;
+transition: .26s;
+}
+
+body.starfield nav:hover, .starfield .nav-wrapper:hover {
+	opacity: 1;
+	background: #222;
+	color: #fff;
+}
+
 body.homepage {
 	background:url('/assets/Background.jpeg') no-repeat center center fixed;
 	/*background-position: right;*/
 	background-size: 1450px;
 }
-
-
-
-
-
 
 
 .loader,

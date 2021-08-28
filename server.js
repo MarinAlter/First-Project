@@ -7,7 +7,7 @@ const jsonParser = bodyParser.json();
 const connectDB = require("./db/db.js");
 const User = require("./db/User.js");
 const bcrypt = require("bcryptjs");
-const secret = "feet are awful";
+const secret = process.env.secret;
 const jwt = require("jsonwebtoken");
 
 app.use(express.static(path.join(__dirname + "/")));
